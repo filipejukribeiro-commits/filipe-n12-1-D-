@@ -1,50 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem dos Antigos Mexidos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e24;
+            color: #f5f5f7;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-class CarroMexido:
-    def __init__(self, modelo, ano, motor, modificacoes):
-        self.modelo = modelo
-        self.ano = ano
-        self.motor = motor
-        self.modificacoes = modificacoes  # Lista de modificações
+        .header-banner {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #d32f2f 0%, #9a0007 100%);
+            border-bottom: 5px solid #ff6659;
+            text-align: center;
+        }
 
-    def exibir_detalhes(self):
-        print(f"🚗 {self.modelo} ({self.ano})")
-        print(f"   🔧 Motor: {self.motor}")
-        print(f"   🛠️ Modificações: {', '.join(self.modificacoes)}")
-        print("-" * 30)
+        .header-banner h1 {
+            margin: 0;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
 
-    def roncar_motor(self):
-        if "Turbo" in str(self.modificacoes):
-            return f"🔊 {self.modelo}: VRUUUMMM... PSHHH! (Espirro do turbo)"
-        else:
-            return f"🔊 {self.modelo}: VROOOOOMMM GTS!"
+        .header-banner p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+            color: #ffcdd2;
+            font-style: italic;
+        }
 
-# --- Criando a nossa garagem de carros mexidos ---
-garagem = [
-    CarroMexido(
-        modelo="Fusca", 
-        ano=1974, 
-        motor="1600 com dupla carburação", 
-        modificacoes=["Suspensão rebaixada", "Rodas Porsche", "Escapamento dimensionado"]
-    ),
-    CarroMexido(
-        modelo="Opala Comodoro", 
-        ano=1982, 
-        motor="4.1 Litros (6 cilindros em linha)", 
-        modificacoes=["Comando de válvula bravo", "Tripla Weber 40", "Kit Turbo"]
-    ),
-    CarroMexido(
-        modelo="Gol GTS", 
-        ano=1989, 
-        motor="1.8 AP", 
-        modificacoes=["Injeção programável", "Polia regulável"]
-    )
-]
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
 
-# --- Executando o sistema ---
-print("=== MINHA GARAGEM DE CARROS MEXIDOS ===")
-for carro in garagem:
-    carro.exibir_detalhes()
+        h2 {
+            color: #ff6659;
+            font-size: 20px;
+            border-left: 5px solid #d32f2f;
+            padding-left: 10px;
+            margin-top: 30px;
+            text-transform: uppercase;
+        }
 
-print("\n=== HORA DE LIGAR AS MÁQUINAS ===")
-for carro in garagem:
-    print(carro.roncar_motor())
+        p {
+            color: #e0e0e0;
+            text-align: justify;
+        }
+
+        .intro-box {
+            background-color: #2a2a35;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #3a3a45;
+        }
+
+        .car-card {
+            background-color: #2a2a35;
+            border: 1px solid #3a3a45;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .car-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #424250;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .car-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .car-year {
+            font-size: 16px;
+            color: #ff6659;
+            font-weight: bold;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        .specs-table td {
+            padding: 6px 0;
+        }
+
+        .specs-table td.label {
+            font-weight: bold;
+            color: #b0bec5;
+            width: 25%;
+        }
+
+        .specs-table td.value {
+            color: #ffffff;
+        }
+
+        .badge-list {
+            margin-top: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #d32f2f;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .curiosidades {
+            background-color: #1a1a20;
+            border: 1px dashed #ff6659;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .curiosidades ul {
+            padding-left: 20px;
+            color: #e0e0e0;
+        }
+
+        .curiosidades li {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #3a3a45;
+            font-size: 13px;
+            color: #757575;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-banner">
+        <h1>Antigos &amp; Mexidos</h1>
+        <p>A arte da customização de carros clássicos e motores preparados</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-box">
+            <h2>Cultura Rat Look, Sleeper e Hot Rod</h2>
+            <p>
+                Para muitos, um carro antigo é uma relíquia para ser mantida exatamente como saiu da fábrica. Mas para os apaixonados pela cultura dos <strong>"mexidos"</strong>, um clássico é uma tela em branco. Seja aumentando a potência com kits turbo e carburadores de alta performance, ou modificando a estética com suspensões modificadas, mexer em carro velho é um estilo de vida que une nostalgia e engenharia de garagem.
+            </p>
+        </div>
+
+        <h2>Projetos Icônicos da Garagem</h2>
+        
+        <div class="car-card">
+            <div class="car-header">
+                <span class="car-title">🚗 VW Fusca "Aspro"</span>
+                <span class="car-year">1974</span>
+            </div>
+            <table class="specs-table">
+                <tr>
+                    <td class="label">Motorização:</td>
+                    <td class="value">1600cc com Dupla Carburação Solex 32</td>
+                </tr>
+                <tr>
+                    <td class="label">Estilo:</td>
+                    <td class="value">German Look / Cal Look</td>
+                </tr>
+            </table>
+            <div class="badge-list">
+                <span class="badge">Suspensão Catracada</span>
+                <span class="badge">Rodas de Porsche</span>
+                <span class="badge">Escape Capetinha</span>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <div class="car-header">
+                <span class="car-title">🚗 Chevrolet Opala Comodoro</span>
+                <span class="car-year">1982</span>
+            </div>
+            <table class="specs-table">
+                <tr>
+                    <td class="label">Motorização:</td>
+                    <td class="value">4.1 Litros (250-S) 6 Cilindros em Linha</td>
+                </tr>
+                <tr>
+                    <td class="label">Estilo:</td>
+                    <td class="value">Street Prepared / Turbo</td>
+                </tr>
+            </table>
+            <div class="badge-list">
+                <span class="badge">Kit Turbo .50</span>
+                <span class="badge">Tripla Weber 40</span>
+                <span class="badge">Comando Bravo 278°</span>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <div class="car-header">
+                <span class="car-title">🚗 VW Gol GTS "Quadrado"</span>
+                <span class="car-year">1989</span>
+            </div>
+            <table class="specs-table">
+                <tr>
+                    <td class="label">Motorização:</td>
+                    <td class="value">1.8 AP (Alta Performance)</td>
+                </tr>
+                <tr>
+                    <td class="label">Estilo:</td>
+                    <td class="value">Sleeper / Injeção Programável</td>
+                </tr>
+            </table>
+            <div class="badge-list">
+                <span class="badge">Injeção FuelTech</span>
+                <span class="badge">Turbina Master Power</span>
+                <span class="badge">Rodas Orbital 16"</span>
+            </div>
+        </div>
+
+        <div class="curiosidades">
+            <h2>Dicionário das Ruas: Termos Comuns</h2>
+            <ul>
+                <li><strong>Sleeper (Carro Dorminhoco):</strong> Aquele carro que por fora parece totalmente original ou até meio gasto, mas esconde um motor extremamente potente por baixo do capô.</li>
+                <li><strong>Rat Look:</strong> Estilo que valoriza a ferrugem, a pintura gasta pelo tempo e o visual envelhecido, porém com a mecânica, suspensão e freios totalmente novos e modernos.</li>
+                <li><strong>Mecânica AP:</strong> O famoso motor da Volkswagen (Alta Performance), o queridinho dos preparadores devido à sua alta resistência para aguentar pressão de turbo.</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>© Garagem dos Antigos Mexidos - Respeite os Clássicos, Acelere os Mexidos.</p>
+        </div>
+    </div>
+
+</body>
+</html>
