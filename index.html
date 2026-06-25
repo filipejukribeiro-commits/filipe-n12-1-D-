@@ -64,6 +64,27 @@
             border: 1px solid #3a3a45;
         }
 
+        /* Estilos para deixar o vídeo do YouTube responsivo */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background-color: #000;
+            border-radius: 6px;
+            border: 1px solid #3a3a45;
+            margin-bottom: 30px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .car-card {
             background-color: #2a2a35;
             border: 1px solid #3a3a45;
@@ -169,6 +190,11 @@
             <p>
                 Para muitos, um carro antigo é uma relíquia para ser mantida exatamente como saiu da fábrica. Mas para os apaixonados pela cultura dos <strong>"mexidos"</strong>, um clássico é uma tela em branco. Seja aumentando a potência com kits turbo e carburadores de alta performance, ou modificando a estética com suspensões modificadas, mexer em carro velho é um estilo de vida que une nostalgia e engenharia de garagem.
             </p>
+        </div>
+
+        <h2>Destaque na Pista / Oficina</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Q-xz4p7swyA?si=HoVASrP_603U_dR-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <h2>Projetos Icônicos da Garagem</h2>
