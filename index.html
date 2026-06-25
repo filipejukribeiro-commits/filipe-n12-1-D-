@@ -1,1 +1,50 @@
 
+class CarroMexido:
+    def __init__(self, modelo, ano, motor, modificacoes):
+        self.modelo = modelo
+        self.ano = ano
+        self.motor = motor
+        self.modificacoes = modificacoes  # Lista de modificações
+
+    def exibir_detalhes(self):
+        print(f"🚗 {self.modelo} ({self.ano})")
+        print(f"   🔧 Motor: {self.motor}")
+        print(f"   🛠️ Modificações: {', '.join(self.modificacoes)}")
+        print("-" * 30)
+
+    def roncar_motor(self):
+        if "Turbo" in str(self.modificacoes):
+            return f"🔊 {self.modelo}: VRUUUMMM... PSHHH! (Espirro do turbo)"
+        else:
+            return f"🔊 {self.modelo}: VROOOOOMMM GTS!"
+
+# --- Criando a nossa garagem de carros mexidos ---
+garagem = [
+    CarroMexido(
+        modelo="Fusca", 
+        ano=1974, 
+        motor="1600 com dupla carburação", 
+        modificacoes=["Suspensão rebaixada", "Rodas Porsche", "Escapamento dimensionado"]
+    ),
+    CarroMexido(
+        modelo="Opala Comodoro", 
+        ano=1982, 
+        motor="4.1 Litros (6 cilindros em linha)", 
+        modificacoes=["Comando de válvula bravo", "Tripla Weber 40", "Kit Turbo"]
+    ),
+    CarroMexido(
+        modelo="Gol GTS", 
+        ano=1989, 
+        motor="1.8 AP", 
+        modificacoes=["Injeção programável", "Polia regulável"]
+    )
+]
+
+# --- Executando o sistema ---
+print("=== MINHA GARAGEM DE CARROS MEXIDOS ===")
+for carro in garagem:
+    carro.exibir_detalhes()
+
+print("\n=== HORA DE LIGAR AS MÁQUINAS ===")
+for carro in garagem:
+    print(carro.roncar_motor())
