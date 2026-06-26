@@ -7,23 +7,25 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1e1e24;
+            background-color: #1a1a1f;
             color: #f5f5f7;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .header-banner {
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #d32f2f 0%, #9a0007 100%);
-            border-bottom: 5px solid #ff6659;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #b71c1c 0%, #7f0000 100%);
+            border-bottom: 4px solid #ff5252;
             text-align: center;
         }
 
         .header-banner h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 26px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #ffffff;
@@ -31,149 +33,71 @@
 
         .header-banner p {
             margin: 5px 0 0 0;
-            font-size: 16px;
+            font-size: 14px;
             color: #ffcdd2;
             font-style: italic;
         }
 
         .container {
             max-width: 800px;
-            margin: 30px auto;
+            width: 100%;
+            margin: 40px auto;
             padding: 0 20px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+
+        .main-card {
+            background-color: #23232e;
+            border: 1px solid #38384a;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         h2 {
-            color: #ff6659;
-            font-size: 20px;
-            border-left: 5px solid #d32f2f;
-            padding-left: 10px;
-            margin-top: 30px;
+            color: #ff5252;
+            font-size: 18px;
             text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         p {
-            color: #e0e0e0;
-            text-align: justify;
-        }
-
-        .intro-box {
-            background-color: #2a2a35;
-            border-radius: 6px;
-            padding: 20px;
+            color: #cbd5e1;
+            font-size: 15px;
+            line-height: 1.6;
             margin-bottom: 25px;
-            border: 1px solid #3a3a45;
         }
 
-        /* Estilos para deixar o vídeo do YouTube responsivo */
-        .video-container {
+        /* Container Responsivo para o iframe do YouTube */
+        .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
+            padding-bottom: 56.25%; /* Proporção 16:9 (Cinema) */
             height: 0;
             overflow: hidden;
-            max-width: 100%;
-            background-color: #000;
             border-radius: 6px;
-            border: 1px solid #3a3a45;
-            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+            background-color: #000;
         }
 
-        .video-container iframe {
+        .video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        .car-card {
-            background-color: #2a2a35;
-            border: 1px solid #3a3a45;
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .car-header {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #424250;
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-        }
-
-        .car-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .car-year {
-            font-size: 16px;
-            color: #ff6659;
-            font-weight: bold;
-        }
-
-        .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 15px;
-        }
-
-        .specs-table td {
-            padding: 6px 0;
-        }
-
-        .specs-table td.label {
-            font-weight: bold;
-            color: #b0bec5;
-            width: 25%;
-        }
-
-        .specs-table td.value {
-            color: #ffffff;
-        }
-
-        .badge-list {
-            margin-top: 10px;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: #d32f2f;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .curiosidades {
-            background-color: #1a1a20;
-            border: 1px dashed #ff6659;
-            border-radius: 6px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-
-        .curiosidades ul {
-            padding-left: 20px;
-            color: #e0e0e0;
-        }
-
-        .curiosidades li {
-            margin-bottom: 10px;
+            border: 0;
         }
 
         .footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 20px 0;
-            border-top: 1px solid #3a3a45;
-            font-size: 13px;
-            color: #757575;
+            padding: 20px;
+            font-size: 12px;
+            color: #64748b;
+            border-top: 1px solid #23232e;
+            background-color: #141419;
         }
     </style>
 </head>
@@ -181,102 +105,24 @@
 
     <div class="header-banner">
         <h1>Antigos &amp; Mexidos</h1>
-        <p>A arte da customização de carros clássicos e motores preparados</p>
+        <p>Projetos de garagem e motores preparados</p>
     </div>
 
     <div class="container">
-        <div class="intro-box">
-            <h2>Cultura Rat Look, Sleeper e Hot Rod</h2>
+        <div class="main-card">
+            <h2>Destaque da Semana</h2>
             <p>
-                Para muitos, um carro antigo é uma relíquia para ser mantida exatamente como saiu da fábrica. Mas para os apaixonados pela cultura dos <strong>"mexidos"</strong>, um clássico é uma tela em branco. Seja aumentando a potência com kits turbo e carburadores de alta performance, ou modificando a estética com suspensões modificadas, mexer em carro velho é um estilo de vida que une nostalgia e engenharia de garagem.
+                Confira abaixo o registro do projeto em ação. Modificações de época, ronco forte e a verdadeira essência da preparação automotiva em detalhes.
             </p>
-        </div>
-
-        <h2>Destaque na Pista / Oficina</h2>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/Q-xz4p7swyA?si=HoVASrP_603U_dR-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-
-        <h2>Projetos Icônicos da Garagem</h2>
-        
-        <div class="car-card">
-            <div class="car-header">
-                <span class="car-title">🚗 VW Fusca "Aspro"</span>
-                <span class="car-year">1974</span>
-            </div>
-            <table class="specs-table">
-                <tr>
-                    <td class="label">Motorização:</td>
-                    <td class="value">1600cc com Dupla Carburação Solex 32</td>
-                </tr>
-                <tr>
-                    <td class="label">Estilo:</td>
-                    <td class="value">German Look / Cal Look</td>
-                </tr>
-            </table>
-            <div class="badge-list">
-                <span class="badge">Suspensão Catracada</span>
-                <span class="badge">Rodas de Porsche</span>
-                <span class="badge">Escape Capetinha</span>
+            
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/Q-xz4p7swyA?si=HoVASrP_603U_dR-" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
+    </div>
 
-        <div class="car-card">
-            <div class="car-header">
-                <span class="car-title">🚗 Chevrolet Opala Comodoro</span>
-                <span class="car-year">1982</span>
-            </div>
-            <table class="specs-table">
-                <tr>
-                    <td class="label">Motorização:</td>
-                    <td class="value">4.1 Litros (250-S) 6 Cilindros em Linha</td>
-                </tr>
-                <tr>
-                    <td class="label">Estilo:</td>
-                    <td class="value">Street Prepared / Turbo</td>
-                </tr>
-            </table>
-            <div class="badge-list">
-                <span class="badge">Kit Turbo .50</span>
-                <span class="badge">Tripla Weber 40</span>
-                <span class="badge">Comando Bravo 278°</span>
-            </div>
-        </div>
-
-        <div class="car-card">
-            <div class="car-header">
-                <span class="car-title">🚗 VW Gol GTS "Quadrado"</span>
-                <span class="car-year">1989</span>
-            </div>
-            <table class="specs-table">
-                <tr>
-                    <td class="label">Motorização:</td>
-                    <td class="value">1.8 AP (Alta Performance)</td>
-                </tr>
-                <tr>
-                    <td class="label">Estilo:</td>
-                    <td class="value">Sleeper / Injeção Programável</td>
-                </tr>
-            </table>
-            <div class="badge-list">
-                <span class="badge">Injeção FuelTech</span>
-                <span class="badge">Turbina Master Power</span>
-                <span class="badge">Rodas Orbital 16"</span>
-            </div>
-        </div>
-
-        <div class="curiosidades">
-            <h2>Dicionário das Ruas: Termos Comuns</h2>
-            <ul>
-                <li><strong>Sleeper (Carro Dorminhoco):</strong> Aquele carro que por fora parece totalmente original ou até meio gasto, mas esconde um motor extremamente potente por baixo do capô.</li>
-                <li><strong>Rat Look:</strong> Estilo que valoriza a ferrugem, a pintura gasta pelo tempo e o visual envelhecido, porém com a mecânica, suspensão e freios totalmente novos e modernos.</li>
-                <li><strong>Mecânica AP:</strong> O famoso motor da Volkswagen (Alta Performance), o queridinho dos preparadores devido à sua alta resistência para aguentar pressão de turbo.</li>
-            </ul>
-        </div>
-
-        <div class="footer">
-            <p>© Garagem dos Antigos Mexidos - Respeite os Clássicos, Acelere os Mexidos.</p>
-        </div>
+    <div class="footer">
+        <p>© Garagem dos Antigos Mexidos - Respeite os Clássicos, Acelere os Mexidos.</p>
     </div>
 
 </body>
